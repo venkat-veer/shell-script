@@ -4,7 +4,7 @@
 
 number1=100
 number2=200
-
-sum=$((number1+number2))
+Name=DevOps
+sum=$(($number1+$number2+$Name))
 
 echo "sum is: ${sum}" 
