@@ -3,10 +3,10 @@
 # DATE=$(date)
 # echo "Timestamp executed is :$DATE"
 
-begin-time=$(date +%s)
+begin-tme=$(date +%s)
 sleep 3
-dead-time=$(date +%s)
+dead-tme=$(date +%s)
 
-total-time=$(($dead-time-$begin-time))
+total-tme=$(($dead-tme-$begin-tme))
 
-echo "script executed in: $total-time seconds"
+echo "script executed in: $total-tme seconds"
