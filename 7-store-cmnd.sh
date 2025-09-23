@@ -3,7 +3,7 @@
 # DATE=$(date)
 # echo "Timestamp executed is :$DATE"
 
-begin_tme=$(date +%s)
+begin_tme=$(date +%s)                       # time in seconds ok.
 sleep 3
 dead_tme=$(date +%s)
 
