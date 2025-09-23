@@ -11,6 +11,7 @@ sum=$(($number1+$number2))
 echo "sum is: ${sum}" 
 
 
+#size of array=4 index of array=3
 leaders=("Modi" "Putin" "Trudo" "Trump")
 echo "All leaders: ${leaders[@]}"               # retrive all values
-echo "first leader: ${leaders[0]}"               # retrive all values
+echo "first leader: ${leaders[0]}"               # retrive first value
