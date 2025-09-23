@@ -11,6 +11,6 @@ sum=$(($number1+$number2))
 echo "sum is: ${sum}" 
 
 
-leaders=("Modi" "Putin" "Trudo" "Trump")
+leaders=("Modi"-"Putin"-"Trudo"-"Trump")
 echo "All leaders: ${leaders[@]}"               # retrive all values
 echo "first leader: ${leaders[0]}"               # retrive all values
