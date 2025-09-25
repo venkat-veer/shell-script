@@ -15,6 +15,6 @@ echo "sum is: ${sum}"
 leaders=("Modi" "Putin" "Trudo" "Trump")
 echo "All leaders: ${leaders[@]}"               # retrive all values
 echo "first leader: ${leaders[0]}"               # retrive first value
-echo "first leader: ${leaders[1]}"               # retrive second value
-echo "first leader: ${leaders[2]}"               # retrive third value
-echo "first leader: ${leaders[10]}"               # retrive value that does not exist it does not show error
+echo "second leader: ${leaders[1]}"               # retrive second value
+echo "third leader: ${leaders[2]}"               # retrive third value
+echo "leader: ${leaders[10]}"               # retrive value that does not exist it does not show error
