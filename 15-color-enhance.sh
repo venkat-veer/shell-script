@@ -27,12 +27,14 @@ if [ $? -ne 0 ]; then
     dnf install mysql -y
 else
     echo -e "mysql already exist:$Y SKIPPING $N"
+fi
 
 dnf install nginx -y
 if [ $? -ne 0 ]; then
     dnf install nginx -y
 else
     echo -e "nginx already exist:$Y SKIPPING $N"
+fi
 
 dnf install python3 -y
 if [ $? -ne 0 ]; then
