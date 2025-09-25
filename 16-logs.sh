@@ -8,7 +8,7 @@ N="\e[0m"
 
 logs_folder="/var/log/shell-script"
 script_name=$(echo $0 | cut -d "." -f1)
-log_file="$logs_folder/$script_name.log"
+log_file="$logs_folder/$script_name.log"         # /var/log/shell-script/16-logs.log
 
 mkdir -p $logs_folder
 echo "Script started executed at:$(date)" | tee -a $log_file
@@ -33,7 +33,7 @@ if [ $? -ne 0 ]; then
     dnf install mysql -y &>>log_file 
     validate $? "MYSQL"
 else
-    echo -e "mysql already exist:$Y SKIPPING $N"    | tee -a $log_file
+    echo -e "mysql already exist:$Y SKIPPING $N" | tee -a $log_file
 fi
 
 dnf list installed nginx &>>log_file 
@@ -41,7 +41,7 @@ if [ $? -ne 0 ]; then
     dnf install nginx -y &>>log_file 
     validate $? "NGINX"
 else
-    echo -e "nginx already exist:$Y SKIPPING $N"    | tee -a $log_file
+    echo -e "nginx already exist:$Y SKIPPING $N" | tee -a $log_file
 fi
 
 dnf list installed python3 &>>log_file 
