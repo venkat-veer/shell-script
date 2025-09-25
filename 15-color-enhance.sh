@@ -39,3 +39,4 @@ if [ $? -ne 0 ]; then
     dnf install python -y
 else
     echo -e "python already exist:$Y SKIPPING $N"
+fi
