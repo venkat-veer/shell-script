@@ -1,53 +1,53 @@
-#!/usr/bin/bash
+#!/bin/bash
 
-userid=$(id -u)
+USERID=$(id -u)
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-logs_folder="/var/log/shell-script"
-script_name=$(echo $0 | cut -d "." -f1)
-log_file="$logs_folder/$script_name.log"         # /var/log/shell-script/16-logs.log
+LOGS_FOLDER="/var/log/shell-script"
+SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
+LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/16-logs.log
 
-mkdir -p $logs_folder
-echo "Script started executed at:$(date)" | tee -a $log_file
+mkdir -p $LOGS_FOLDER
+echo "Script started executed at: $(date)" | tee -a $LOG_FILE
 
-if [ $userid -ne 0 ]; then
-    echo "ERROR: Please run the script with ROOT Privilege"
-    exit 1      # failure is other than 0
+if [ $USERID -ne 0 ]; then
+    echo "ERROR:: Please run this script with root privelege"
+    exit 1 # failure is other than 0
 fi
 
-validate(){                     # functions receive input through args just like shell script args
+VALIDATE(){ # functions receive inputs through args just like shell script args
     if [ $1 -ne 0 ]; then
-        echo -e "Installing $2 is:$R failure $N" | tee -a $log_file
+        echo -e "Installing $2 ... $R FAILURE $N" | tee -a $LOG_FILE
         exit 1
     else
-        echo -e "Installing $2 is:$G is Success $N" | tee -a $log_file
+        echo -e "Installing $2 ... $G SUCCESS $N" | tee -a $LOG_FILE
     fi
-
 }
 
-dnf list installed mysql &>>log_file 
+dnf list installed mysql &>>$LOG_FILE
+# Install if it is not found
 if [ $? -ne 0 ]; then
-    dnf install mysql -y &>>log_file 
-    validate $? "MYSQL"
+    dnf install mysql -y &>>$LOG_FILE
+    VALIDATE $? "MySQL"
 else
-    echo -e "mysql already exist:$Y SKIPPING $N" | tee -a $log_file
+    echo -e "MySQL already exist ... $Y SKIPPING $N" | tee -a $LOG_FILE
 fi
 
-dnf list installed nginx &>>log_file 
+dnf list installed nginx &>>$LOG_FILE
 if [ $? -ne 0 ]; then
-    dnf install nginx -y &>>log_file 
-    validate $? "NGINX"
+    dnf install nginx -y &>>$LOG_FILE
+    VALIDATE $? "Nginx"
 else
-    echo -e "nginx already exist:$Y SKIPPING $N" | tee -a $log_file
+    echo -e "Nginx already exist ... $Y SKIPPING $N" | tee -a $LOG_FILE
 fi
 
-dnf list installed python3 &>>log_file 
+dnf list installed python3 &>>$LOG_FILE
 if [ $? -ne 0 ]; then
-    dnf install python3 -y &>>log_file 
-    validate $? "python3"
+    dnf install python3 -y &>>$LOG_FILE
+    VALIDATE $? "python3"
 else
-    echo -e "python3 already exist:$Y SKIPPING $N" | tee -a $log_file   # tee -read print on screen and write to file
+    echo -e "Python3 already exist ... $Y SKIPPING $N" | tee -a $LOG_FILE
 fi
