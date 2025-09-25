@@ -2,5 +2,6 @@
 
 for i in {1..20}
 do 
-    echo $i
+    # echo $i
+    print i
 done 
