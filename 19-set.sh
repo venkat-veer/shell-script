@@ -3,7 +3,7 @@
 set -e                                     # means exit when u got error.
 
 error(){
-    echo "There si an error"
+    echo "There is an error"
 }
 
 trap error ERR 
