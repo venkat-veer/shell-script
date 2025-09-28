@@ -21,3 +21,8 @@ if [ ! -d $SOURCE_DIR ]; then                   # d means directory. if dir not 
 fi
 
 FILES_TO_DELETE=$(find $SOURCE_DIR -name "*.log" -type f -mtime +14)          # find files in current dir more than 14 days
+
+while IFS= read -r filepath          # internal filed seperator
+do
+    echo "Deleting the file: $filepath"
+done <<< $FILES_TO_DELETE       # for file < for multiple files or variables use <<< ok 
