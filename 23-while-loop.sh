@@ -4,7 +4,7 @@ count=5
 
 echo "Start Count Down.."
 
-while [ $count -ge 0]
+while [ $count -ge 0 ]
 do
     echo "time left: $count"
     sleep 1                  # pause for 1 second
