@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-set -e
+set -e                          # when error founds in script exit immediately
 USERID=$(id -u)
 R="\e[31m"
 G="\e[32m"
@@ -14,7 +14,7 @@ LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/16-logs.log
 mkdir -p $LOGS_FOLDER
 echo "Script started executed at: $(date)" | tee -a $LOG_FILE
 
-SOURCE_DIR=/home/ec2-user/app-logsssss
+SOURCE_DIR=/home/ec2-user/app-logs
 
 if [ ! -d $SOURCE_DIR ]; then                   # d means directory. if dir not exist in source-dir
     echo -e "ERROR:: $SOURCE_DIR does not exist"
