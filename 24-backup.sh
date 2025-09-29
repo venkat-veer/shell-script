@@ -71,6 +71,7 @@ if [ ! -z "${FILES}" ]; then                                    #z -check files 
     else
             echo -e "Archieval ... $G SUCCESS $N"
             exit 1
+    fi
 else
         echo -e "No Files to archieve ... $Y SKIPPING $N"
 fi
