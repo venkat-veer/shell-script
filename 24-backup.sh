@@ -20,7 +20,7 @@ if [ $USERID -ne 0 ]; then
 fi
 
 USAGE(){
-    echo "$R:USAGE: sudo sh 24-backup.sh <SOURCE_DIR> <DESTINATION_DIR> <DAYS> [optional,default 14 days]:$N"
+    echo -e "$R:USAGE: sudo sh 24-backup.sh <SOURCE_DIR> <DESTINATION_DIR> <DAYS> [optional,default 14 days]:$N"
     exit 1
 }
 
