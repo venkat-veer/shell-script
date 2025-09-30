@@ -4,5 +4,5 @@ DISK_USAGE=$(df -hT | grep -v Filesystem)
 
 while IFS= read -r line
 do
-    echo "Line $Line"
+    echo "Line $line"
 done <<< $DISK_UsAGE
