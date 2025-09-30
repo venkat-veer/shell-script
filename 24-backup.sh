@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-# set -e                          # when error founds in script exit immediately
+# set -e                         # when error founds in script exit immediately if u did not write validate
 USERID=$(id -u)
 R="\e[31m"
 G="\e[32m"
@@ -12,7 +12,8 @@ DAYS=${3:-14}                   # if not provided consider as 14 days.
 
 LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
-LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/16-logs.log
+# LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/16-logs.log
+LOG_FILE="$LOGS_FOLDER/backup.log"         # modified to run script as command.
 
 mkdir -p $LOGS_FOLDER
 echo "Script started executed at: $(date)" | tee -a $LOG_FILE
@@ -34,7 +35,7 @@ if [ $# -lt 2 ]; then
 fi 
 
 ### check SOURCE_DIR-dir exist or not ###
-if [ ! -d $SOURCE_DIR ]; then
+if [ ! -d $SOURCE_DIR ]; then                               # d checks source dir exists or not
     echo -e "$R:Source $SOURCE_DIR does not exist $N"
     exit 1
 fi
